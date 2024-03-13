@@ -25,44 +25,44 @@ return {
             position = 'left',
           }
         end,
-        desc = 'Explorer [N]eoTree ([R]oot dir)',
+        desc = '[N]eoTree [R]oot',
       },
       {
-        '<leader>nc',
+        '<leader>nc', -- same as <C-e>
         function()
           require('neo-tree.command').execute { toggle = true, dir = vim.loop.cwd(), position = 'left' }
         end,
-        desc = 'Explorer [N]eoTree ([C]wd/current)',
+        desc = '[N]eoTree [C]urrent',
       },
       {
         '<leader>nf',
         function()
           require('neo-tree.command').execute { source = 'filesystem', toggle = true, reveal = true, position = 'float' }
         end,
-        desc = 'Explorer [N]eoTree last ([F]loating)',
+        desc = '[N]eoTree [F]loating (filesystem)',
       },
       {
         '<leader>ns',
         function()
           require('neo-tree.command').execute { source = 'document_symbols', toggle = true, position = 'left' }
         end,
-        desc = 'Explorer [N]eoTree ([S]ymbols)',
+        desc = '[N]eoTree [S]ymbols',
       },
       -- { '<leader>e', '<leader>fe', desc = 'Explorer NeoTree (root dir)', remap = true },
       -- { '<leader>E', '<leader>fE', desc = 'Explorer NeoTree (cwd)', remap = true },
       {
-        '<leader>ge',
+        '<leader>ng',
         function()
           require('neo-tree.command').execute { source = 'git_status', toggle = true, position = 'left' }
         end,
-        desc = '[G]it [E]xplorer',
+        desc = '[N]eoTree [G]it',
       },
       {
-        '<leader>be',
+        '<leader>nb',
         function()
           require('neo-tree.command').execute { source = 'buffers', toggle = true, position = 'left' }
         end,
-        desc = '[B]uffer [E]xplorer',
+        desc = '[N]eoTree [B]uffer',
       },
       {
         '<C-e>',

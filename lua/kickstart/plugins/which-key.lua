@@ -30,7 +30,7 @@ return {
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
         ['<leader>bs'] = { name = '[B]uffer [S]plit', _ = 'which_key_ignore' },
-        ['<leader>n'] = { name = 'Explorer [N]eoTree', _ = 'which_key_ignore' },
+        ['<leader>n'] = { name = '[N]eoTree', _ = 'which_key_ignore' },
         ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
       }
     end,
