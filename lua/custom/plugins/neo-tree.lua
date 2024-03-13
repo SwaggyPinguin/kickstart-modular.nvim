@@ -8,10 +8,12 @@ return {
       'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
       'MunifTanjim/nui.nvim',
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-      's1n7ax/nvim-window-picker',
-      config = function()
-        require('window-picker').setup()
-      end,
+      {
+        's1n7ax/nvim-window-picker',
+        config = function()
+          require('window-picker').setup()
+        end,
+      },
     },
     keys = {
       {
@@ -20,6 +22,7 @@ return {
           require('neo-tree.command').execute {
             toggle = true,
             dir = vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1]),
+            position = 'left',
           }
         end,
         desc = 'Explorer [N]eoTree ([R]oot dir)',
@@ -27,25 +30,46 @@ return {
       {
         '<leader>nc',
         function()
-          require('neo-tree.command').execute { toggle = true, dir = vim.loop.cwd() }
+          require('neo-tree.command').execute { toggle = true, dir = vim.loop.cwd(), position = 'left' }
         end,
         desc = 'Explorer [N]eoTree ([C]wd/current)',
+      },
+      {
+        '<leader>nf',
+        function()
+          require('neo-tree.command').execute { source = 'filesystem', toggle = true, reveal = true, position = 'float' }
+        end,
+        desc = 'Explorer [N]eoTree last ([F]loating)',
+      },
+      {
+        '<leader>ns',
+        function()
+          require('neo-tree.command').execute { source = 'document_symbols', toggle = true, position = 'left' }
+        end,
+        desc = 'Explorer [N]eoTree ([S]ymbols)',
       },
       -- { '<leader>e', '<leader>fe', desc = 'Explorer NeoTree (root dir)', remap = true },
       -- { '<leader>E', '<leader>fE', desc = 'Explorer NeoTree (cwd)', remap = true },
       {
         '<leader>ge',
         function()
-          require('neo-tree.command').execute { source = 'git_status', toggle = true }
+          require('neo-tree.command').execute { source = 'git_status', toggle = true, position = 'left' }
         end,
         desc = '[G]it [E]xplorer',
       },
       {
         '<leader>be',
         function()
-          require('neo-tree.command').execute { source = 'buffers', toggle = true }
+          require('neo-tree.command').execute { source = 'buffers', toggle = true, position = 'left' }
         end,
         desc = '[B]uffer [E]xplorer',
+      },
+      {
+        '<C-e>',
+        function()
+          require('neo-tree.command').execute { source = 'filesystem', toggle = true, reveal = true, position = 'left' }
+        end,
+        desc = 'Open NeoTree on current file',
       },
     },
     deactivate = function()
@@ -61,7 +85,12 @@ return {
     end,
     opts = {
       sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
+      source_selector = {
+        winbar = true,
+        statusline = false,
+      },
       open_files_do_not_replace_types = { 'terminal', 'Trouble', 'trouble', 'qf', 'Outline' },
+      close_if_last_window = true,
       filesystem = {
         bind_to_cwd = false,
         follow_current_file = { enabled = true },
@@ -91,6 +120,7 @@ return {
     },
     config = function(_, opts)
       require('neo-tree').setup(opts)
+
       vim.api.nvim_create_autocmd('TermClose', {
         pattern = '*lazygit',
         callback = function()
