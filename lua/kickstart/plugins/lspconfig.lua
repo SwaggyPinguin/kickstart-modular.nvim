@@ -143,7 +143,11 @@ return {
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
-        --
+
+        intelephense = {},
+        eslint = {},
+        tsserver = {},
+        cssls = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -186,6 +190,9 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
+        'prettier', -- Used to format JavaScript, TypeScript, etc.
+        'php-cs-fixer', -- Used to format PHP code
+        'phpcs', -- Used to lint PHP code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

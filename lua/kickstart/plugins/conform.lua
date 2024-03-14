@@ -1,11 +1,14 @@
 return {
   { -- Autoformat
     'stevearc/conform.nvim',
+    -- lazy = true,
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = {
         timeout_ms = 500,
         lsp_fallback = true,
+        async = false,
       },
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -14,7 +17,20 @@ return {
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        javascript = { { 'prettierd', 'prettier' } },
+        php = { 'php' },
+      },
+      formatters = {
+        php = {
+          command = 'php-cs-fixer',
+          args = {
+            'fix',
+            '$FILENAME',
+            '--config=' .. vim.fn.stdpath 'config' .. '/lua/custom/tools/php-cs-fixer/.php-cs.php',
+            '--allow-risky=yes', -- if you have risky stuff in config, if not you dont need it.
+          },
+          stdin = false,
+        },
       },
     },
   },
