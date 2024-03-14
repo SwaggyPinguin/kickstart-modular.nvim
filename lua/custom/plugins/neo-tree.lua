@@ -53,7 +53,7 @@ return {
       {
         '<leader>ng',
         function()
-          require('neo-tree.command').execute { source = 'git_status', toggle = true, position = 'left' }
+          require('neo-tree.command').execute { source = 'git_status', toggle = true, position = 'float' }
         end,
         desc = '[N]eoTree [G]it',
       },
