@@ -25,6 +25,7 @@ return {
         ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
         ['<leader>d'] = { name = '[D]ocument | [D]ebug', _ = 'which_key_ignore' },
         ['<leader>ds'] = { name = '[D]ocument [S]ymbols', _ = 'which_key_ignore' },
+        ['<leader>dt'] = { name = '[D]ocument [T]wilight', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>sr'] = { name = '[S]earch [R]eplace | [R]esume', _ = 'which_key_ignore' },
