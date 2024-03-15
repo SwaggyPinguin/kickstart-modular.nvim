@@ -26,6 +26,7 @@ return {
         end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
+      { 'nvim-telescope/telescope-symbols.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
@@ -67,10 +68,13 @@ return {
             hidden = true,
             no_ignore = true,
           },
-          -- live_grep = {
-          --   hidden = true,
-          --   no_ignore = true,
-          -- },
+          live_grep = {
+            additional_args = function(opts)
+              return { '-g', '!*.min.js', '-g', '!*.min.css' }
+            end,
+            -- hidden = true,
+            -- no_ignore = true,
+          },
         },
         extensions = {
           ['ui-select'] = {
@@ -93,7 +97,6 @@ return {
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>srs', builtin.resume, { desc = '[S]earch [R]e[S]ume' })
-      -- vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = '[S]earch [O]ld Files' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
