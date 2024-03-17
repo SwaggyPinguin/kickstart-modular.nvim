@@ -1,5 +1,6 @@
 return {
   'folke/twilight.nvim',
+  lazy = true,
   opts = {},
   keys = {
     { '<leader>dtt', ':Twilight<CR>', desc = '[D]ocument [T]wilight [T]oggle' },

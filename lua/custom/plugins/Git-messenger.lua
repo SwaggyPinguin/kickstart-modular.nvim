@@ -1,5 +1,6 @@
 return {
   'rhysd/git-messenger.vim',
+  lazy = true,
   cmd = 'GitMessenger',
   keys = {
     { '<leader>gm', '<Plug>(git-messenger)', desc = '[G]it Reveal commit [M]essage under cursor' },

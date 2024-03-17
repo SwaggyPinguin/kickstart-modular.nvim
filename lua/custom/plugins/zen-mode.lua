@@ -1,5 +1,6 @@
 return {
   'folke/zen-mode.nvim',
+  lazy = true,
   opts = {
     plugins = {
       gitsigns = { enabled = true },

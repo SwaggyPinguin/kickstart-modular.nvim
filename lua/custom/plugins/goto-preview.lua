@@ -1,5 +1,6 @@
 return {
   'rmagatti/goto-preview',
+  lazy = true,
   opts = {},
   -- config = function()
   --   require('goto-preview').setup {}
