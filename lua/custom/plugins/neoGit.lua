@@ -22,6 +22,7 @@ return {
       diffview = true,
     },
   },
+  config = {},
   init = function()
     local neogit = require 'neogit'
 
