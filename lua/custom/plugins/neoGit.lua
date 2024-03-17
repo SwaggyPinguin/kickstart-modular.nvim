@@ -1,5 +1,6 @@
 return {
   'NeogitOrg/neogit',
+  cmd = 'Neogit',
   dependencies = {
     'nvim-lua/plenary.nvim', -- required
     'sindrets/diffview.nvim', -- optional - Diff integration
@@ -8,7 +9,19 @@ return {
     'nvim-telescope/telescope.nvim', -- optional
     -- "ibhagwan/fzf-lua",              -- optional
   },
-  config = {},
+  opts = {
+    disable_signs = false,
+    disable_context_highlighting = false,
+    disable_commit_confirmation = false,
+    signs = {
+      section = { '', '' },
+      item = { '', '' },
+      hunk = { '', '' },
+    },
+    integrations = {
+      diffview = true,
+    },
+  },
   init = function()
     local neogit = require 'neogit'
 
