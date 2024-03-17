@@ -14,6 +14,11 @@ return {
     map 'w'
     map 'e'
     map 'b'
+
+    -- remap the default keys for visual mode
+    vim.keymap.set('v', 'w', 'w', { silent = true })
+    vim.keymap.set('v', 'e', 'e', { silent = true })
+    vim.keymap.set('v', 'b', 'b', { silent = true })
   end,
   -- keys =
   --   { 'w', ":lua require('spider').motion('w') <CR>", { mode = { 'n', 'o', 'x' }, silent = true, desc = 'Move to start of next word' } },
