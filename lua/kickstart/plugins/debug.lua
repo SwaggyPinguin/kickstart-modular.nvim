@@ -9,7 +9,6 @@
 return {
   'mfussenegger/nvim-dap',
 
-  lazy = true,
   dependencies = {
     -- Creates a beautiful debugger UI
     {
@@ -69,39 +68,70 @@ return {
       },
     }
 
+    -- TODO: add change and sort out the keymaps
+    -- keys = {
+    --   { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+    --   { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc = "Toggle Breakpoint" },
+    --   { "<leader>da", function() require("dap").continue({ before = get_args }) end,                        desc = "Run with Args" },
+    --   { "<leader>dC", function() require("dap").run_to_cursor() end,                                        desc = "Run to Cursor" },
+    --   { "<leader>dg", function() require("dap").goto_() end,                                                desc = "Go to line (no execute)" },
+    --   { "<leader>dj", function() require("dap").down() end,                                                 desc = "Down" },
+    --   { "<leader>dk", function() require("dap").up() end,                                                   desc = "Up" },
+    --   { "<leader>dl", function() require("dap").run_last() end,                                             desc = "Run Last" },
+    --   { "<leader>dr", function() require("dap").repl.toggle() end,                                          desc = "Toggle REPL" },
+    --   { "<leader>ds", function() require("dap").session() end,                                              desc = "Session" },
+    --   { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                     desc = "Widgets" },
+    -- },
+
     -- Basic debugging keymaps, feel free to change to your liking!
-    vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-    vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-    vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-    vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
+    vim.keymap.set('n', '<F5>', dap.continue, { desc = '[D]ebug: Start/Continue' })
+    vim.keymap.set('n', '<leader>dP', dap.pause, { desc = '[D]ebug: [P]ause' })
+    vim.keymap.set('n', '<F10>', dap.step_over, { desc = '[D]ebug: Step Over' })
+    vim.keymap.set('n', '<leader>di', dap.step_into, { desc = '[D]ebug: Step [I]nto' })
+    vim.keymap.set('n', '<leader>do', dap.step_out, { desc = '[D]ebug: Step [O]ut' })
+    vim.keymap.set('n', '<leader>dT', dap.terminate, { desc = '[D]ebug: [T]erminate' })
+
     vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = '[D]ebug: Toggle [B]reakpoint' })
     vim.keymap.set('n', '<leader>dB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = '[D]ebug: Set [B]reakpoint' })
 
+    vim.keymap.set({ 'n', 'v' }, '<leader>dh', function()
+      require('dap.ui.widgets').hover()
+    end, { desc = '[D]ebug: [H]over' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>dp', function()
+      require('dap.ui.widgets').preview()
+    end, { desc = '[D]ebug: [P]review' })
+    vim.keymap.set('n', '<leader>df', function()
+      local widgets = require 'dap.ui.widgets'
+      widgets.centered_float(widgets.frames)
+    end, { desc = '[D]ebug: [F]rames' })
+    vim.keymap.set('n', '<leader>ds', function()
+      local widgets = require 'dap.ui.widgets'
+      widgets.centered_float(widgets.scopes)
+    end, { desc = '[D]ebug: [S]copes' })
+
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup {
-      -- Set icons to characters that are more likely to work in every terminal.
-      --    Feel free to remove or use ones that you like more! :)
-      --    Don't feel like these are good choices.
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
         enabled = true,
         icons = {
           pause = '⏸',
           play = '▶',
-          step_into = '⏎',
-          step_over = '⏭',
-          step_out = '⏮',
-          step_back = 'b',
+          step_into = '', -- ⏎
+          step_out = '', -- ⏮
+          step_over = '', -- ⏭
+          step_back = '', -- b
           run_last = '▶▶',
-          terminate = '⏹',
-          disconnect = '⏏',
+          terminate = '', -- ⏹
+          disconnect = '', -- ⏏
         },
       },
     }
 
+    -- 🔴🛑
     vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
 
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
@@ -125,6 +155,8 @@ return {
         port = 9003,
         pathMappings = {
           ['/var/www/bmc'] = '${workspaceFolder}',
+          ['/var/www/bmc-staging'] = '${workspaceFolder}',
+          ['/var/www/wifimedia4u'] = '${workspaceFolder}',
         },
       },
       {
@@ -140,25 +172,4 @@ return {
     -- Install golang specific config
     -- require('dap-go').setup()
   end,
-
-  -- TODO: add change and sort out the keymaps
-  -- keys = {
-  --   { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
-  --   { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc = "Toggle Breakpoint" },
-  --   { "<leader>dc", function() require("dap").continue() end,                                             desc = "Continue" },
-  --   { "<leader>da", function() require("dap").continue({ before = get_args }) end,                        desc = "Run with Args" },
-  --   { "<leader>dC", function() require("dap").run_to_cursor() end,                                        desc = "Run to Cursor" },
-  --   { "<leader>dg", function() require("dap").goto_() end,                                                desc = "Go to line (no execute)" },
-  --   { "<leader>di", function() require("dap").step_into() end,                                            desc = "Step Into" },
-  --   { "<leader>dj", function() require("dap").down() end,                                                 desc = "Down" },
-  --   { "<leader>dk", function() require("dap").up() end,                                                   desc = "Up" },
-  --   { "<leader>dl", function() require("dap").run_last() end,                                             desc = "Run Last" },
-  --   { "<leader>do", function() require("dap").step_out() end,                                             desc = "Step Out" },
-  --   { "<leader>dO", function() require("dap").step_over() end,                                            desc = "Step Over" },
-  --   { "<leader>dp", function() require("dap").pause() end,                                                desc = "Pause" },
-  --   { "<leader>dr", function() require("dap").repl.toggle() end,                                          desc = "Toggle REPL" },
-  --   { "<leader>ds", function() require("dap").session() end,                                              desc = "Session" },
-  --   { "<leader>dt", function() require("dap").terminate() end,                                            desc = "Terminate" },
-  --   { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                     desc = "Widgets" },
-  -- },
 }
