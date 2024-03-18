@@ -26,7 +26,7 @@ return {
         end
 
         -- Navigation
-        map('n', 'ghn', function()
+        map('n', '<leader>ghn', function()
           if vim.wo.diff then
             return ']c'
           end
@@ -36,7 +36,7 @@ return {
           return '<Ignore>'
         end, { expr = true, desc = '[G]it [H]unk [N]ext' })
 
-        map('n', 'ghp', function()
+        map('n', '<leader>ghp', function()
           if vim.wo.diff then
             return '[c'
           end
