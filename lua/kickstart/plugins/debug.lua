@@ -13,6 +13,9 @@ return {
     -- Creates a beautiful debugger UI
     {
       'rcarriga/nvim-dap-ui',
+      dependencies = {
+        'nvim-neotest/nvim-nio',
+      },
       keys = {
         {
           '<leader>du',
