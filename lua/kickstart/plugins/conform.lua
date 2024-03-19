@@ -19,6 +19,7 @@ return {
         -- is found.
         javascript = { { 'prettierd', 'prettier' } },
         php = { 'php' },
+        markdown = { 'prettier', 'prettierd' },
       },
       formatters = {
         php = {
