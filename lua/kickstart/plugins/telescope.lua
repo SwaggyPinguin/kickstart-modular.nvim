@@ -65,7 +65,7 @@ return {
           --   i = { ['<c-t>'] = trouble.open_with_trouble, ['<c-enter>'] = 'to_fuzzy_refine' },
           --   n = { ['<c-t>'] = trouble.open_with_trouble },
           -- },
-          path_display = { 'smart' },
+          -- path_display = { 'smart' },
           file_ignore_patterns = { 'node_modules', '.git', '.cache', 'build', 'dist' },
         },
         pickers = {
