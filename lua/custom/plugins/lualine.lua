@@ -9,6 +9,7 @@ return {
       options = {
         -- theme = 'gruvbox',
         theme = 'gruvbox-material',
+        globalstatus = true,
       },
       sections = {
         lualine_x = {
@@ -18,6 +19,18 @@ return {
           { 'filesize' },
         },
       },
+      -- inactive_winbar = {
+      --   lualine_a = {
+      --     {
+      --       'filename',
+      --       path = 1,
+      --       file_status = true,
+      --       -- color = {
+      --       --   bg = '#00000000',
+      --       -- },
+      --     },
+      --   },
+      -- },
     }
   end,
 }
