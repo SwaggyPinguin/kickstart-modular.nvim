@@ -19,6 +19,15 @@ return {
           { 'filesize' },
         },
       },
+      -- winbar = {
+      --   lualine_a = {
+      --     {
+      --       'filename',
+      --       path = 1,
+      --       file_status = true,
+      --     },
+      --   },
+      -- },
       -- inactive_winbar = {
       --   lualine_a = {
       --     {
@@ -26,7 +35,7 @@ return {
       --       path = 1,
       --       file_status = true,
       --       -- color = {
-      --       --   bg = '#00000000',
+      --       --   bg = '#504945',
       --       -- },
       --     },
       --   },
