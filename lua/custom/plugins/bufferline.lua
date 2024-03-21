@@ -50,5 +50,7 @@ return {
 
     map('n', '<C-p>', ':BufferLinePick<CR>', opts, { desc = { '[B]uffer [P]ick' } })
     map('n', '<C-S-p>', ':BufferLineTogglePin<CR>', opts, { desc = { '[B]uffer Toggle [P]in' } })
+
+    require 'custom.utils.bufferline.tabconfig'
   end,
 }
