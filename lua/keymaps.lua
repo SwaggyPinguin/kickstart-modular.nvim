@@ -11,15 +11,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Buffer keymaps (currently using another plugin for this `romgrk/barbar.nvim`)
--- vim.keymap.set('n', '<leader>bn', '<cmd> bnext <CR>', { desc = '[B]uffer [N]ext' })
--- vim.keymap.set('n', '<leader>bp', '<cmd> bprevious <CR>', { desc = '[B]uffer [P]revious' })
--- vim.keymap.set('n', '<leader>bd', '<cmd> bdelete <CR>', { desc = '[B]uffer [D]elete' })
--- vim.keymap.set('n', '<leader>bsn', '<cmd> sbnext <CR>', { desc = '[B]uffer [S]plit [N]ext' })
-
--- vim.keymap.set('n', '<tab>', '<cmd> tabnext <CR>', { desc = 'Next tab', silent = true })
--- vim.keymap.set('n', '<S-tab>', '<cmd> tabprevious <CR>', { desc = 'Previous tab', silent = true })
-
 -- Lazy
 vim.keymap.set('n', '<leader>l', '<cmd> Lazy <CR>', { desc = '[L]azy' })
 
