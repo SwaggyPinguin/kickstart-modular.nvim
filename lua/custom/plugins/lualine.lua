@@ -58,6 +58,7 @@ return {
               require('neo-tree.command').execute {}
             end,
           },
+          -- { 'hostname', icon = '' },
         },
         lualine_z = {
           { 'datetime', icon = '', style = '%H:%M' },
