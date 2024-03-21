@@ -7,5 +7,12 @@ return {
     vim.o.number = true
     vim.o.termguicolors = true
   end,
-  opts = {},
+  opts = {
+    highlights = {
+      defaults = {
+        bold = true,
+        italic = true,
+      },
+    },
+  },
 }
