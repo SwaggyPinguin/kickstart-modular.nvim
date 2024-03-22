@@ -20,6 +20,7 @@ return {
     lualine.setup {
       options = {
         theme = 'gruvbox-material',
+        -- theme = 'gruvbox-flat',
         globalstatus = true,
         always_divide_middle = false,
         -- disabled_filetypes = { 'neo-tree' },
