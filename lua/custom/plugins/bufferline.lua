@@ -47,9 +47,9 @@ return {
 
     map('n', '<leader>br', ':BufferLineTabRename', {}, { desc = { '[B]uffer [R]ename' } })
     map('n', '<leader>bd', ':bdelete<CR>', opts, { desc = { '[B]uffer [D]elete' } })
+    map('n', '<leader>bp', ':BufferLineTogglePin<CR>', opts, { desc = { '[B]uffer Toggle [P]in' } })
 
     map('n', '<C-p>', ':BufferLinePick<CR>', opts, { desc = { '[B]uffer [P]ick' } })
-    map('n', '<C-S-p>', ':BufferLineTogglePin<CR>', opts, { desc = { '[B]uffer Toggle [P]in' } })
 
     require 'custom.utils.bufferline.tabconfig'
   end,
