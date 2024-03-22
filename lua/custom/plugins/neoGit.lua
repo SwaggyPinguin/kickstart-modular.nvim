@@ -20,6 +20,7 @@ return {
     },
     integrations = {
       diffview = true,
+      telescope = true,
     },
   },
   init = function()
