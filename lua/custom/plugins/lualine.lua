@@ -22,6 +22,7 @@ return {
         theme = 'gruvbox-material',
         globalstatus = true,
         always_divide_middle = false,
+        -- disabled_filetypes = { 'neo-tree' },
       },
       sections = {
         lualine_a = {
@@ -64,7 +65,7 @@ return {
           { 'datetime', icon = '', style = '%H:%M' },
         },
       },
-      extensions = { 'fugitive', 'neo-tree', 'trouble' },
+      extensions = { 'fugitive', 'neo-tree', 'trouble', 'lazy' },
     }
   end,
 }
