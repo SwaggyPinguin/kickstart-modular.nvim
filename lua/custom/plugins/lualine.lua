@@ -63,7 +63,8 @@ return {
           -- { 'hostname', icon = '' },
         },
         lualine_z = {
-          { 'datetime', icon = '', style = '%H:%M' },
+          -- 
+          { 'datetime', icon = '', style = '%H:%M' },
         },
       },
       extensions = { 'fugitive', 'neo-tree', 'trouble', 'lazy' },
