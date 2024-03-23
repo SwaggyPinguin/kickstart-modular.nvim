@@ -9,7 +9,19 @@ return {
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          -- window = {
+          --   blend = 0,
+          --   relative = 'editor',
+          -- },
+        },
+        -- init = function()
+        --   vim.api.nvim_set_hl(0, 'FidgetTitle', { link = 'NormalFloat' })
+        --   vim.api.nvim_set_hl(0, 'FidgetTask', { link = 'NormalFloat' })
+        -- end,
+      },
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
