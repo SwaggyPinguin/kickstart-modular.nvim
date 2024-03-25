@@ -67,8 +67,8 @@ return {
           gs.diffthis '~'
         end, { desc = '[G]it [H]unk [D]iff ~' })
 
-        map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = '[T]oggle [B]lame' })
-        map('n', '<leader>td', gs.toggle_deleted, { desc = '[T]oggle [D]eleted' })
+        map('n', '<leader>gtb', gs.toggle_current_line_blame, { desc = '[G]it [T]oggle [B]lame' })
+        map('n', '<leader>gtd', gs.toggle_deleted, { desc = '[G]it [T]oggle [D]eleted' })
 
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Gitsigns select hunk' })
