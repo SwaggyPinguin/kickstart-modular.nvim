@@ -80,6 +80,12 @@ return {
             -- hidden = true,
             -- no_ignore = true,
           },
+          lsp_workspace_symbols = {
+            path_display = { 'smart' },
+          },
+          lsp_dynamic_workspace_symbols = {
+            path_display = { 'smart' },
+          },
         },
         extensions = {
           ['ui-select'] = {
