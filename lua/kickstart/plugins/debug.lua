@@ -18,18 +18,18 @@ return {
       },
       keys = {
         {
-          '<leader>du',
+          '<leader>ddu',
           function()
             require('dapui').toggle {}
           end,
-          desc = '[D]ebug [U]I',
+          desc = '[D]ocument [D]ebug [U]I',
         },
         {
-          '<leader>de',
+          '<leader>dde',
           function()
             require('dapui').eval()
           end,
-          desc = '[D]ebug [E]val',
+          desc = '[D]ocument [D]ebug [E]val',
           mode = { 'n', 'v' },
         },
       },
@@ -88,31 +88,31 @@ return {
 
     -- Basic debugging keymaps, feel free to change to your liking!
     vim.keymap.set('n', '<F5>', dap.continue, { desc = '[D]ebug: Start/Continue' })
-    vim.keymap.set('n', '<leader>dP', dap.pause, { desc = '[D]ebug: [P]ause' })
+    vim.keymap.set('n', '<leader>ddP', dap.pause, { desc = '[D]ocument [D]ebug: [P]ause' })
     vim.keymap.set('n', '<F10>', dap.step_over, { desc = '[D]ebug: Step Over' })
-    vim.keymap.set('n', '<leader>di', dap.step_into, { desc = '[D]ebug: Step [I]nto' })
-    vim.keymap.set('n', '<leader>do', dap.step_out, { desc = '[D]ebug: Step [O]ut' })
-    vim.keymap.set('n', '<leader>dT', dap.terminate, { desc = '[D]ebug: [T]erminate' })
+    vim.keymap.set('n', '<leader>ddi', dap.step_into, { desc = '[D]ocument [D]ebug: Step [I]nto' })
+    vim.keymap.set('n', '<leader>ddo', dap.step_out, { desc = '[D]ocument [D]ebug: Step [O]ut' })
+    vim.keymap.set('n', '<leader>ddT', dap.terminate, { desc = '[D]ocument [D]ebug: [T]erminate' })
 
-    vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = '[D]ebug: Toggle [B]reakpoint' })
-    vim.keymap.set('n', '<leader>dB', function()
+    vim.keymap.set('n', '<leader>ddb', dap.toggle_breakpoint, { desc = '[D]ocument [D]ebug: Toggle [B]reakpoint' })
+    vim.keymap.set('n', '<leader>ddB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end, { desc = '[D]ebug: Set [B]reakpoint' })
+    end, { desc = '[D]ocument [D]ebug: Set [B]reakpoint' })
 
-    vim.keymap.set({ 'n', 'v' }, '<leader>dh', function()
+    vim.keymap.set({ 'n', 'v' }, '<leader>ddh', function()
       require('dap.ui.widgets').hover()
-    end, { desc = '[D]ebug: [H]over' })
-    vim.keymap.set({ 'n', 'v' }, '<leader>dp', function()
+    end, { desc = '[D]ocument [D]ebug: [H]over' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>ddp', function()
       require('dap.ui.widgets').preview()
-    end, { desc = '[D]ebug: [P]review' })
-    vim.keymap.set('n', '<leader>df', function()
+    end, { desc = '[D]ocument [D]ebug: [P]review' })
+    vim.keymap.set('n', '<leader>ddf', function()
       local widgets = require 'dap.ui.widgets'
       widgets.centered_float(widgets.frames)
-    end, { desc = '[D]ebug: [F]rames' })
-    vim.keymap.set('n', '<leader>ds', function()
+    end, { desc = '[D]ocument [D]ebug: [F]rames' })
+    vim.keymap.set('n', '<leader>dds', function()
       local widgets = require 'dap.ui.widgets'
       widgets.centered_float(widgets.scopes)
-    end, { desc = '[D]ebug: [S]copes' })
+    end, { desc = '[D]ocument [D]ebug: [S]copes' })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
