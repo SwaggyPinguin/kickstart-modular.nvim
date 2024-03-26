@@ -27,9 +27,11 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       javascript = { { 'prettierd', 'prettier' } },
+      html = { 'prettierd', 'prettier' },
       php = { 'php' },
       markdown = { 'prettier', 'prettierd' },
       -- twig = { 'twig-cs-fixer' },
+      twig = { 'twig' },
     },
     formatters = {
       php = {
@@ -39,6 +41,16 @@ return { -- Autoformat
           '$FILENAME',
           '--config=' .. vim.fn.stdpath 'config' .. '/lua/custom/tools/php-cs-fixer/.php-cs.php',
           '--allow-risky=yes', -- if you have risky stuff in config, if not you dont need it.
+        },
+        stdin = false,
+      },
+      twig = {
+        command = 'twig-cs-fixer',
+        args = {
+          'lint',
+          '--config=' .. vim.fn.stdpath 'config' .. '/lua/custom/tools/twig-cs-fixer/.twig-cs-fixer.php',
+          '--fix',
+          '$FILENAME',
         },
         stdin = false,
       },
@@ -108,6 +120,7 @@ return { -- Autoformat
       '<leader>df',
       function()
         require('conform').format { async = true, lsp_fallback = true }
+        require 'notify'('Formatting...', 'info', { title = 'conform.nvim' })
       end,
       mode = '',
       desc = '[D]ocument [F]ormat',
