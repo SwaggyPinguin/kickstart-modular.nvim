@@ -214,7 +214,11 @@ return {
         'stylua', -- Used to format lua code
         'prettier', -- Used to format JavaScript, TypeScript, etc.
         'php-cs-fixer', -- Used to format PHP code
+        'twig-cs-fixer', -- Used to format Twig code
+
         'phpcs', -- Used to lint PHP code
+        'twiggy-language-server',
+        'htmlhint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
