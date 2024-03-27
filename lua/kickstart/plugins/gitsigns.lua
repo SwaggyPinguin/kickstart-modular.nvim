@@ -17,12 +17,17 @@ return {
       },
       current_line_blame = false,
       on_attach = function(bufnr)
+        local notify = require 'notify'
         local gs = package.loaded.gitsigns
 
         local function map(mode, l, r, opts)
           opts = opts or {}
           opts.buffer = bufnr
           vim.keymap.set(mode, l, r, opts)
+        end
+
+        local function show_notification(message, level)
+          notify(message, level, { title = 'gitsings.nvim' })
         end
 
         -- Navigation
@@ -67,8 +72,14 @@ return {
           gs.diffthis '~'
         end, { desc = '[G]it [H]unk [D]iff ~' })
 
-        map('n', '<leader>gtb', gs.toggle_current_line_blame, { desc = '[G]it [T]oggle [B]lame' })
-        map('n', '<leader>gtd', gs.toggle_deleted, { desc = '[G]it [T]oggle [D]eleted' })
+        map('n', '<leader>gtb', function()
+          local state = gs.toggle_current_line_blame()
+          show_notification('Toggle current line blame: ' .. (state and 'enabled' or 'disabled'))
+        end, { desc = '[G]it [T]oggle [B]lame' })
+        map('n', '<leader>gtd', function()
+          local state = gs.toggle_deleted()
+          show_notification('Toggle deleted: ' .. (state and 'enabled' or 'disabled'))
+        end, { desc = '[G]it [T]oggle [D]eleted' })
 
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Gitsigns select hunk' })
