@@ -23,7 +23,7 @@ return {
         -- theme = 'gruvbox-flat',
         globalstatus = true,
         always_divide_middle = false,
-        -- disabled_filetypes = { 'neo-tree' },
+        disabled_filetypes = { 'nvim-dap-ui' },
       },
       sections = {
         lualine_a = {
@@ -67,7 +67,7 @@ return {
           { 'datetime', icon = '', style = '%H:%M' },
         },
       },
-      extensions = { 'fugitive', 'neo-tree', 'trouble', 'lazy' },
+      extensions = { 'fugitive', 'neo-tree', 'trouble', 'lazy', 'mason', 'nvim-dap-ui', 'quickfix', 'toggleterm' },
     }
   end,
 }
