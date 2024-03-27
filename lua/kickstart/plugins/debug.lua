@@ -102,13 +102,16 @@ return {
     vim.keymap.set({ 'n', 'v' }, '<leader>ddh', function()
       require('dap.ui.widgets').hover()
     end, { desc = '[D]ocument [D]ebug: [H]over' })
+
     vim.keymap.set({ 'n', 'v' }, '<leader>ddp', function()
       require('dap.ui.widgets').preview()
     end, { desc = '[D]ocument [D]ebug: [P]review' })
+
     vim.keymap.set('n', '<leader>ddf', function()
       local widgets = require 'dap.ui.widgets'
       widgets.centered_float(widgets.frames)
     end, { desc = '[D]ocument [D]ebug: [F]rames' })
+
     vim.keymap.set('n', '<leader>dds', function()
       local widgets = require 'dap.ui.widgets'
       widgets.centered_float(widgets.scopes)
@@ -116,23 +119,23 @@ return {
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
-    dapui.setup {
-      icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
-      controls = {
-        enabled = true,
-        icons = {
-          pause = '⏸',
-          play = '▶',
-          step_into = '', -- ⏎
-          step_out = '', -- ⏮
-          step_over = '', -- ⏭
-          step_back = '', -- b
-          run_last = '▶▶',
-          terminate = '', -- ⏹
-          disconnect = '', -- ⏏
-        },
-      },
-    }
+    -- dapui.setup {
+    --   icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+    --   controls = {
+    --     enabled = true,
+    --     icons = {
+    --       pause = '⏸',
+    --       play = '▶',
+    --       step_into = '', -- ⏎
+    --       step_out = '', -- ⏮
+    --       step_over = '', -- ⏭
+    --       step_back = '', -- b
+    --       run_last = '▶▶',
+    --       terminate = '', -- ⏹
+    --       disconnect = '', -- ⏏
+    --     },
+    --   },
+    -- }
 
     -- 🔴🛑
     vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
