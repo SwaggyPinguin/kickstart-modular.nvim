@@ -27,7 +27,7 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       javascript = { { 'prettierd', 'prettier' } },
-      html = { 'prettierd', 'prettier' },
+      html = { 'htmlbeautifier', 'prettierd', 'prettier' },
       php = { 'php' },
       markdown = { 'prettier', 'prettierd' },
       -- twig = { 'twig-cs-fixer' },
