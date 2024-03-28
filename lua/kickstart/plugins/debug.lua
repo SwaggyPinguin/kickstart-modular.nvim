@@ -73,17 +73,10 @@ return {
 
     -- TODO: add change and sort out the keymaps
     -- keys = {
-    --   { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
-    --   { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc = "Toggle Breakpoint" },
     --   { "<leader>da", function() require("dap").continue({ before = get_args }) end,                        desc = "Run with Args" },
     --   { "<leader>dC", function() require("dap").run_to_cursor() end,                                        desc = "Run to Cursor" },
     --   { "<leader>dg", function() require("dap").goto_() end,                                                desc = "Go to line (no execute)" },
-    --   { "<leader>dj", function() require("dap").down() end,                                                 desc = "Down" },
-    --   { "<leader>dk", function() require("dap").up() end,                                                   desc = "Up" },
     --   { "<leader>dl", function() require("dap").run_last() end,                                             desc = "Run Last" },
-    --   { "<leader>dr", function() require("dap").repl.toggle() end,                                          desc = "Toggle REPL" },
-    --   { "<leader>ds", function() require("dap").session() end,                                              desc = "Session" },
-    --   { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                     desc = "Widgets" },
     -- },
 
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -116,6 +109,22 @@ return {
       local widgets = require 'dap.ui.widgets'
       widgets.centered_float(widgets.scopes)
     end, { desc = '[D]ocument [D]ebug: [S]copes' })
+
+    vim.keymap.set('n', '<leader>ddr', function()
+      require('dap').repl.toggle()
+    end, { desc = '[D]ocument [D]ebug: [R]EPL' })
+
+    vim.keymap.set('n', '<leader>ddS', function()
+      require('dap').session()
+    end, { desc = '[D]ocument [D]ebug: [S]ession' })
+
+    vim.keymap.set('n', '<leader>ddD', function()
+      require('dap').down()
+    end, { desc = '[D]ocument [D]ebug: [D]own' })
+
+    vim.keymap.set('n', '<leader>ddU', function()
+      require('dap').up()
+    end, { desc = '[D]ocument [D]ebug: [U]p' })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
