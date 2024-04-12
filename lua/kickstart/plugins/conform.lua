@@ -26,10 +26,10 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { { 'prettierd', 'prettier' } },
-      html = { 'htmlbeautifier', 'prettierd', 'prettier' },
+      javascript = { 'prettier' },
+      html = { 'prettier' },
       php = { 'php' },
-      markdown = { 'prettier', 'prettierd' },
+      markdown = { 'prettier' },
       -- twig = { 'twig-cs-fixer' },
       twig = { 'twig' },
     },
