@@ -1,13 +1,16 @@
 return {
   'akinsho/bufferline.nvim',
   version = '*',
-  dependencies = 'nvim-tree/nvim-web-devicons',
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'famiu/bufdelete.nvim',
+  },
   opts = {
     options = {
       mode = 'buffers',
       numbers = 'none',
       sort_by = 'directory',
-      middle_mouse_command = 'bdelete! %d',
+      middle_mouse_command = 'Bdelete! %d',
       right_mouse_command = nil,
       offsets = {
         {
@@ -46,7 +49,7 @@ return {
     map('n', '<leader>bst', ':BufferLineSortByTabs<CR>', opts, { desc = '[B]uffer [S]ort by [T]abs' })
 
     map('n', '<leader>br', ':BufferLineTabRename', {}, { desc = '[B]uffer [R]ename' })
-    map('n', '<leader>bd', ':bdelete<CR>', opts, { desc = '[B]uffer [D]elete' })
+    map('n', '<leader>bd', ':Bdelete<CR>', opts, { desc = '[B]uffer [D]elete' })
     map('n', '<leader>bp', ':BufferLineTogglePin<CR>', opts, { desc = '[B]uffer Toggle [P]in' })
 
     map('n', '<C-p>', ':BufferLinePick<CR>', opts, { desc = '[B]uffer [P]ick' })
