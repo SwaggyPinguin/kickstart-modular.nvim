@@ -11,7 +11,9 @@ return {
           require('luasnip.loaders.from_vscode').lazy_load()
           local ls = require 'luasnip'
 
+          -- Add snippets for other filetypes
           ls.filetype_extend('php', { 'html' })
+          ls.filetype_extend('twig', { 'html' })
 
           vim.keymap.set({ 'i' }, '<C-Y>', function()
             ls.expand()
