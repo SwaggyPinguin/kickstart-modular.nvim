@@ -91,9 +91,11 @@ return {
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>dsa', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols [A]ll')
+          map('<leader>dsa', function()
+            require('telescope.builtin').lsp_document_symbols { symbol_width = 60 }
+          end, '[D]ocument [S]ymbols [A]ll')
           map('<leader>dsf', function()
-            require('telescope.builtin').lsp_document_symbols { symbols = { 'function', 'method' } }
+            require('telescope.builtin').lsp_document_symbols { symbols = { 'function', 'method' }, symbol_width = 60 }
           end, '[D]ocument [S]ymbols [F]unctions and Methods')
 
           -- Fuzzy find all the symbols in your current workspace
