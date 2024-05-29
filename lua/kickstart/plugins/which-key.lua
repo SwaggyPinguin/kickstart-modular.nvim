@@ -40,6 +40,7 @@ return {
         ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
         ['<leader>gh'] = { name = '[G]it [H]unk', _ = 'which_key_ignore' },
         ['<leader>gt'] = { name = '[G]it [T]oggle', _ = 'which_key_ignore' },
+        ['<leader>o'] = { name = '[O]rgmode', _ = 'which_key_ignore' },
         ['<leader>x'] = { name = 'Trouble', _ = 'which_key_ignore' },
         ['<leader>u'] = { name = 'Notifications', _ = 'which_key_ignore' },
         ['gp'] = { name = '[G]oto [P]review', _ = 'which_key_ignore' },
