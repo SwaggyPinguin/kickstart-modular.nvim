@@ -172,7 +172,7 @@ return {
 
         intelephense = {},
         eslint = {},
-        tsserver = {},
+        -- tsserver = {},
         cssls = {},
 
         lua_ls = {
